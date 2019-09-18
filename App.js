@@ -85,6 +85,9 @@ class App extends Component<Props> {
                 <Text style={styles.instructions}>
                     这是更新的版本
                 </Text>
+                <Text style={styles.instructions}>
+                    这是第二版更新的版本
+                </Text>
             </View>
         );
     }
