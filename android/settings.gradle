@@ -1,0 +1,3 @@
+rootProject.name = 'rnCodepushDemo'
+
+include ':app'
