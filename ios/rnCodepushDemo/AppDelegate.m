@@ -16,8 +16,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
+  
+  NSURL *jsCodeLocation;
+
+  #ifdef DEBUG
+    jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
+  #else
+    jsCodeLocation = [CodePush bundleURL];
+  #endif
+//  RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:jsCodeLocation
                                                    moduleName:@"rnCodepushDemo"
                                             initialProperties:nil];
 
