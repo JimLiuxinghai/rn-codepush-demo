@@ -10,13 +10,6 @@ import React, { Component } from 'react';
 import { Platform, StyleSheet, Text, View } from 'react-native';
 import CodePush from "react-native-code-push"; // 引入code-push
 
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
-
 let codePushOptions = {
     //设置检查更新的频率
     //ON_APP_RESUME APP恢复到前台的时候
