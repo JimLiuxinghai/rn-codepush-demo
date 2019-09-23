@@ -3,8 +3,8 @@ import { StyleSheet, Image } from 'react-native';
 import {
     createBottomTabNavigator
 } from "react-navigation";
-import HomePage from './pages/Home';
-import PaperPage from './pages/Paper';
+import HomePage from './pages/home';
+import PaperPage from './pages/paper';
 
 
 export default MainTab = createBottomTabNavigator({//在这里配置页面的路由
