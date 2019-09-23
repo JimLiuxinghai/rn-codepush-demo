@@ -1,6 +1,7 @@
 package com.rncodepushdemo;
 
 import android.app.Application;
+import android.util.Log;
 
 import com.facebook.react.ReactApplication;
 import com.microsoft.codepush.react.CodePush;
@@ -17,6 +18,7 @@ public class MainApplication extends Application implements ReactApplication {
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
     protected String getJSBundleFile(){
+      Log.e("onReactContextInit:", "codepush地址" + CodePush.getJSBundleFile());
       return CodePush.getJSBundleFile();
     }
 
@@ -29,8 +31,12 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            // new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG)
-            new CodePush(null, getApplicationContext(), BuildConfig.DEBUG)
+            // new CodePush(getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey), getApplicationContext(), BuildConfig.DEBUG
+              new CodePush(
+                      getResources().getString(R.string.reactNativeCodePush_androidDeploymentKey),
+                      getApplicationContext(), BuildConfig.DEBUG,
+                      getResources().getString(R.string.reactNativeCodePush_androidServerURL)
+              )
       );
     }
 
